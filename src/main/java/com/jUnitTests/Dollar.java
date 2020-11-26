@@ -1,20 +1,23 @@
 package com.jUnitTests;
 
-//@Data
+import lombok.Data;
+
+@Data
 public class Dollar {
 
-    int amount;
+    private int amount;
 
     public Dollar(int amount){
         this.amount = amount;
     }
 
      Dollar times(int multiplier) {
-        return new Dollar(this.amount * multiplier);
+        return new Dollar(this.getAmount() * multiplier);
     }
 
+    @Override
     public boolean equals(Object object) {
         Dollar dollar = (Dollar) object;
-        return (this.amount == dollar.amount);
+        return (this.getAmount() == dollar.getAmount());
     }
 }
