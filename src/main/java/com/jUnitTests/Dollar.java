@@ -1,17 +1,12 @@
 package com.jUnitTests;
 
-import lombok.Data;
+public class Dollar extends Money{
 
-@Data
-public class Dollar {
-
-    int amount;
-
-    public Dollar(int amount){
-        this.amount = amount;
+    public Dollar(int amount, String currency){
+        super(amount, currency);
     }
 
-     void times(int multiplier) {
-        amount *= multiplier;
+    public Money times(int multiplier) {
+        return Money.dollar(getAmount() * multiplier);
     }
 }
