@@ -1,8 +1,6 @@
 package com.jUnitTests;
 
-import lombok.Data;
-
-@Data
+//@Data
 public class Dollar {
 
     int amount;
@@ -11,7 +9,7 @@ public class Dollar {
         this.amount = amount;
     }
 
-     void times(int multiplier) {
-        amount *= multiplier;
+     Dollar times(int multiplier) {
+        return new Dollar(this.amount * multiplier);
     }
 }
