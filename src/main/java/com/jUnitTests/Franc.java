@@ -2,16 +2,11 @@ package com.jUnitTests;
 
 public class Franc extends Money{
 
-    public Franc(int amount){
-        this.amount = amount;
+    public Franc(int amount, String currency){
+        super(amount, currency);
     }
 
-    public Franc times(int multiplier) {
-        return new Franc(this.getAmount() * multiplier);
-    }
-
-    @Override
-    public int getAmount() {
-        return super.getAmount();
+    public Money times(int multiplier) {
+        return Money.franc(getAmount() * multiplier);
     }
 }
