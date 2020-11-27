@@ -5,7 +5,7 @@ import lombok.NoArgsConstructor;
 
 @Data
 @NoArgsConstructor
-public class Money {
+public class Money implements Expression{
     protected int amount;
     protected String currency;
 
@@ -19,7 +19,7 @@ public class Money {
     }
 
     public Money times(int multiplier) {
-        return new Money(getAmount() * multiplier, currency());
+        return new Money(getAmount() * multiplier, getCurrency());
     }
 
     public static Money dollar(int amount) {
@@ -34,16 +34,19 @@ public class Money {
     public boolean equals(Object object) {
         Money money = (Money) object;
         return (this.getAmount() == money.getAmount())
-                && (this.currency().equals(money.currency()));
+                && (this.currency().equals(money.getCurrency()));
     }
 
     @Override
     public String toString() {
         return "Money{" +
-                "amount=" + amount +
-                ", currency='" + currency + '\'' +
+                "amount=" + getAmount() +
+                ", currency='" + getCurrency() + '\'' +
                 '}';
     }
 
 
+    public Expression plus(Money addend) {
+        return new Money(getAmount() + addend.getAmount(), getCurrency());
+    }
 }
