@@ -9,13 +9,17 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Sum implements Expression{
 
-    Money augmend;
-    Money addmend;
+    Expression augmend;
+    Expression addmend;
 
     @Override
     public Money reduce(Bank bank, String to) {
-        int amount = getAugmend().getAmount() + getAddmend().getAmount();
+        int amount = getAugmend().reduce(bank, to).getAmount() + getAddmend().reduce(bank, to).getAmount();
         return new Money(amount, to);
     }
 
+    @Override
+    public Expression plus(Expression addend) {
+        return null;
+    }
 }
