@@ -20,6 +20,11 @@ public class Sum implements Expression{
 
     @Override
     public Expression plus(Expression addend) {
-        return null;
+        return new Sum(this, getAddmend());
+    }
+
+    @Override
+    public Expression times(int multiplier) {
+        return new Sum(getAugmend().times(multiplier), getAddmend().times(multiplier));
     }
 }

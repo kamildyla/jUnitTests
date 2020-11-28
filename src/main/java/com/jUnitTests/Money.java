@@ -15,10 +15,6 @@ public class Money implements Expression{
         return getCurrency();
     }
 
-    public Money times(int multiplier) {
-        return new Money(getAmount() * multiplier, getCurrency());
-    }
-
     public static Money dollar(int amount) {
         return new Money(amount, "USD");
     }
@@ -47,6 +43,12 @@ public class Money implements Expression{
                 '}';
     }
 
+    @Override
+    public Money times(int multiplier) {
+        return new Money(getAmount() * multiplier, getCurrency());
+    }
+
+    @Override
     public Expression plus(Expression addend) {
         return new Sum(this, addend);
     }
