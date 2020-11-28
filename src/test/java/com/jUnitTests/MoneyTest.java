@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
-public class MoneyTest {
+class MoneyTest {
 
     @Test
     void testMultiplication() {
@@ -65,7 +65,7 @@ public class MoneyTest {
     }
 
     @Test
-    void testReduceMoneyDiffrentCurrency() {
+    void testReduceMoneyDifferentCurrency() {
         Bank bank = new Bank();
         bank.addRate("CHF", "USD", 2);
         Money result = bank.reduce(Money.franc(2), "USD");

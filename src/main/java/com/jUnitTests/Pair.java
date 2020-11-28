@@ -5,7 +5,7 @@ import lombok.RequiredArgsConstructor;
 import java.util.Objects;
 
 @RequiredArgsConstructor
-public class Pair {
+class Pair {
 
     private final String from;
     private final String to;
