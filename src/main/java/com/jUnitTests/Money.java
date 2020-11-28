@@ -1,18 +1,15 @@
 package com.jUnitTests;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
+@AllArgsConstructor
 @NoArgsConstructor
 public class Money implements Expression{
     protected int amount;
     protected String currency;
-
-    public Money(int amount, String currency){
-        this.amount = amount;
-        this.currency = currency;
-    }
 
     protected String currency() {
         return getCurrency();
@@ -38,6 +35,11 @@ public class Money implements Expression{
     }
 
     @Override
+    public Money reduce(String to) {
+        return this;
+    }
+
+    @Override
     public String toString() {
         return "Money{" +
                 "amount=" + getAmount() +
@@ -45,8 +47,7 @@ public class Money implements Expression{
                 '}';
     }
 
-
     public Expression plus(Money addend) {
-        return new Money(getAmount() + addend.getAmount(), getCurrency());
+        return new Sum(this, addend);
     }
 }

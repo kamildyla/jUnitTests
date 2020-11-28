@@ -33,10 +33,34 @@ public class MoneyTest {
 
     @Test
     void testSimpleAddition() {
-        Money five = Money.dollar(5);
-        Expression sum = five.plus(five);
+        Money fiveD = Money.dollar(5);
+        Expression sum = fiveD.plus(fiveD);
         Bank bank = new Bank();
-        Money reduced = bank.reduce(sum, "USD");
-        assertEquals(Money.dollar(10), reduced);
+        Money reducedD = bank.reduce(sum, "USD");
+        assertEquals(Money.dollar(10), reducedD);
+    }
+
+    @Test
+    void testPlusReturnsSum() {
+        Money fiveD = Money.dollar(5);
+        Expression result = fiveD.plus(fiveD);
+        Sum sum = (Sum) result;
+        assertEquals(fiveD, sum.augmend);
+        assertEquals(fiveD, sum.addmend);
+    }
+
+    @Test
+    void testReduceSum() {
+        Expression sum = new Sum (Money.dollar(3), Money.dollar(4));
+        Bank bank = new Bank();
+        Money resultD = bank.reduce(sum, "USD");
+        assertEquals(Money.dollar(7), resultD);
+    }
+
+    @Test
+    void testReduceMoney() {
+        Bank bank = new Bank();
+        Money resultD = bank.reduce(Money.dollar(1), "USD");
+        assertEquals(Money.dollar(1), resultD);
     }
 }
