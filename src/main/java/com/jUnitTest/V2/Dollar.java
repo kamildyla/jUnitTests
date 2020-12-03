@@ -1,10 +1,11 @@
 package com.jUnitTest.V2;
 
-public class Dollar extends Money {
+class Dollar extends Money {
 
-    public Dollar(int amount) {
+    double ratioToDollar = 1;
+
+    Dollar(double amount) {
         super(amount);
         this.currency = "USD";
-
     }
 }

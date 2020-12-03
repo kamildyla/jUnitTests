@@ -1,8 +1,10 @@
 package com.jUnitTest.V2;
 
-public class Franc extends Money {
+class Franc extends Money {
 
-    public Franc(int amount) {
+    double ratioToDollar = 0.5;
+
+    Franc(double amount) {
         super(amount);
         this.currency = "CHF";
     }
