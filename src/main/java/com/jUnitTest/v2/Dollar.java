@@ -1,4 +1,4 @@
-package com.jUnitTest.V2;
+package com.jUnitTest.v2;
 
 class Dollar extends Money {
 

@@ -1,4 +1,4 @@
-package com.jUnitTest.V2;
+package com.jUnitTest.v2;
 
 import lombok.Data;
 
