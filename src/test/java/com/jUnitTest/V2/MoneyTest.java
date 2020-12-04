@@ -30,7 +30,8 @@ class MoneyTest {
         assertEquals(5, franc.plus(franc1));
         assertNotEquals(5, franc.plus(dollar1));
 
-        //assertEquals(9, dollar.plus(franc));
+        assertEquals(9, dollar.plus(franc));
+        assertEquals(4.5, franc.plus(dollar));
     }
 
 
