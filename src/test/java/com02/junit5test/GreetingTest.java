@@ -9,7 +9,7 @@ class GreetingTest {
     private Greeting greeting;
 
     @BeforeAll
-    public static void beforeClass() {
+    static void beforeClass() {
         System.out.println("before all once");
     }
 
@@ -36,7 +36,7 @@ class GreetingTest {
     }
 
     @AfterAll
-    public static void afterClass() {
+    static void afterClass() {
         System.out.println("after all once");
     }
 
